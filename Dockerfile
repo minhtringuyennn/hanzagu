@@ -36,8 +36,6 @@ ENV SHEET_NAME ${SHEET_NAME}
 ENV START_CELL ${START_CELL}
 ENV END_CELL ${END_CELL}
 
-COPY credentials.json /credentials.json
-
 RUN yarn ci
 RUN yarn build
 
