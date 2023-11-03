@@ -13,37 +13,37 @@ interface ImageData {
 }
 
 export const load = (async () => {
-	const auth_provider_x509_cert_url = env.auth_provider_x509_cert_url;
-	const auth_uri = env.auth_uri;
-	const client_email = env.client_email;
-	const client_id = env.client_id;
-	const client_x509_cert_url = env.client_x509_cert_url;
-	const raw_private_key = JSON.parse(env.private_key);
-	const { private_key } = raw_private_key;
-	const private_key_id = env.private_key_id;
-	const project_id = env.project_id;
-	const token_uri = env.token_uri;
-	const type = env.type;
-	const universe_domain = env.universe_domain;
+	const AUTH_PROVIDER_X509_CERT_URL = env.AUTH_PROVIDER_X509_CERT_URL;
+	const AUTH_URI = env.AUTH_URI;
+	const CLIENT_EMAIL = env.CLIENT_EMAIL;
+	const CLIENT_ID = env.CLIENT_ID;
+	const CLIENT_X509_CERT_URL = env.CLIENT_X509_CERT_URL;
+	const raw_private_key = JSON.parse(env.PRIVATE_KEY);
+	const { PRIVATE_KEY } = raw_private_key;
+	const PRIVATE_KEY_ID = env.PRIVATE_KEY_ID;
+	const PROJECT_ID = env.PROJECT_ID;
+	const TOKEN_URI = env.TOKEN_URI;
+	const TYPE = env.TYPE;
+	const UNIVERSE_DOMAIN = env.UNIVERSE_DOMAIN;
 
-	const spreadsheet_id = env.spreadsheet_id;
+	const SPREADSHEET_ID = env.SPREADSHEET_ID;
 
-	const sheet_name = env.sheet_name;
-	const start_cell = env.start_cell;
-	const end_cell = env.end_cell;
+	const SHEET_NAME = env.SHEET_NAME;
+	const START_CELL = env.START_CELL;
+	const END_CELL = env.END_CELL;
 
 	const credentials = {
-		auth_provider_x509_cert_url,
-		auth_uri,
-		client_email,
-		client_id,
-		client_x509_cert_url,
-		private_key,
-		private_key_id,
-		project_id,
-		token_uri,
-		type,
-		universe_domain
+		auth_provider_x509_cert_url: AUTH_PROVIDER_X509_CERT_URL,
+		auth_uri: AUTH_URI,
+		client_email: CLIENT_EMAIL,
+		client_id: CLIENT_ID,
+		client_x509_cert_url: CLIENT_X509_CERT_URL,
+		private_key: PRIVATE_KEY,
+		private_key_id: PRIVATE_KEY_ID,
+		project_id: PROJECT_ID,
+		token_uri: TOKEN_URI,
+		type: TYPE,
+		universe_domain: UNIVERSE_DOMAIN
 	};
 
 	const auth = new google.auth.GoogleAuth({
@@ -53,10 +53,10 @@ export const load = (async () => {
 
 	const sheets = google.sheets({ version: 'v4', auth });
 
-	const range = `${sheet_name}!${start_cell}:${end_cell}`;
+	const range = `${SHEET_NAME}!${START_CELL}:${END_CELL}`;
 
 	const response = await sheets.spreadsheets.values.get({
-		spreadsheetId: spreadsheet_id,
+		spreadsheetId: SPREADSHEET_ID,
 		range
 	});
 

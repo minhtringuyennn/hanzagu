@@ -4,37 +4,37 @@ FROM node:18 as build-stage
 WORKDIR /
 COPY . .
 
-ARG auth_provider_x509_cert_url
-ARG auth_uri
-ARG client_email
-ARG client_id
-ARG client_x509_cert_url
-ARG private_key
-ARG private_key_id
-ARG project_id
-ARG token_uri
-ARG type
-ARG universe_domain
-ARG spreadsheet_id
-ARG sheet_name
-ARG start_cell
-ARG end_cell
+ARG AUTH_PROVIDER_X509_CERT_URL
+ARG AUTH_URI
+ARG CLIENT_EMAIL
+ARG CLIENT_ID
+ARG CLIENT_X509_CERT_URL
+ARG PRIVATE_KEY
+ARG PRIVATE_KEY_ID
+ARG PROJECT_ID
+ARG TOKEN_URI
+ARG TYPE
+ARG UNIVERSE_DOMAIN
+ARG SPREADSHEET_ID
+ARG SHEET_NAME
+ARG START_CELL
+ARG END_CELL
 
-ENV auth_provider_x509_cert_url ${auth_provider_x509_cert_url}
-ENV auth_uri ${auth_uri}
-ENV client_email ${client_email}
-ENV client_id ${client_id}
-ENV client_x509_cert_url ${client_x509_cert_url}
-ENV private_key ${private_key}
-ENV private_key_id ${private_key_id}
-ENV project_id ${project_id}
-ENV token_uri ${token_uri}
-ENV type ${type}
-ENV universe_domain ${universe_domain}
-ENV spreadsheet_id ${spreadsheet_id}
-ENV sheet_name ${sheet_name}
-ENV start_cell ${start_cell}
-ENV end_cell ${end_cell}
+ENV AUTH_PROVIDER_X509_CERT_URL ${AUTH_PROVIDER_X509_CERT_URL}
+ENV AUTH_URI ${AUTH_URI}
+ENV CLIENT_EMAIL ${CLIENT_EMAIL}
+ENV CLIENT_ID ${CLIENT_ID}
+ENV CLIENT_X509_CERT_URL ${CLIENT_X509_CERT_URL}
+ENV PRIVATE_KEY ${PRIVATE_KEY}
+ENV PRIVATE_KEY_ID ${PRIVATE_KEY_ID}
+ENV PROJECT_ID ${PROJECT_ID}
+ENV TOKEN_URI ${TOKEN_URI}
+ENV TYPE ${TYPE}
+ENV UNIVERSE_DOMAIN ${UNIVERSE_DOMAIN}
+ENV SPREADSHEET_ID ${SPREADSHEET_ID}
+ENV SHEET_NAME ${SHEET_NAME}
+ENV START_CELL ${START_CELL}
+ENV END_CELL ${END_CELL}
 
 RUN yarn ci
 RUN yarn build

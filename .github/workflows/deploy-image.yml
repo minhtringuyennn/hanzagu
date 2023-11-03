@@ -9,21 +9,21 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
 
-  auth_provider_x509_cert_url: ${{ secrets.auth_provider_x509_cert_url }}
-  auth_uri: ${{ secrets.auth_uri }}
-  client_email: ${{ secrets.client_email }}
-  client_id: ${{ secrets.client_id }}
-  client_x509_cert_url: ${{ secrets.client_x509_cert_url }}
-  private_key: ${{ secrets.private_key }}
-  private_key_id: ${{ secrets.private_key_id }}
-  project_id: ${{ secrets.project_id }}
-  token_uri: ${{ secrets.token_uri }}
-  type: ${{ secrets.type }}
-  universe_domain: ${{ secrets.universe_domain }}
-  spreadsheet_id: ${{ secrets.spreadsheet_id }}
-  sheet_name: ${{ secrets.sheet_name }}
-  start_cell: ${{ secrets.start_cell }}
-  end_cell: ${{ secrets.end_cell }}
+  AUTH_PROVIDER_X509_CERT_URL: ${{ secrets.AUTH_PROVIDER_X509_CERT_URL }}
+  AUTH_URI: ${{ secrets.AUTH_URI }}
+  CLIENT_EMAIL: ${{ secrets.CLIENT_EMAIL }}
+  CLIENT_ID: ${{ secrets.CLIENT_ID }}
+  CLIENT_X509_CERT_URL: ${{ secrets.CLIENT_X509_CERT_URL }}
+  PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+  PRIVATE_KEY_ID: ${{ secrets.PRIVATE_KEY_ID }}
+  PROJECT_ID: ${{ secrets.PROJECT_ID }}
+  TOKEN_URI: ${{ secrets.TOKEN_URI }}
+  TYPE: ${{ secrets.TYPE }}
+  UNIVERSE_DOMAIN: ${{ secrets.UNIVERSE_DOMAIN }}
+  SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
+  SHEET_NAME: ${{ secrets.SHEET_NAME }}
+  START_CELL: ${{ secrets.START_CELL }}
+  END_CELL: ${{ secrets.END_CELL }}
 
 jobs:
   build-and-push-image:
@@ -69,18 +69,18 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_REPOSITORY }}:${{ matrix.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
-            auth_provider_x509_cert_url
-            auth_uri
-            client_email
-            client_id
-            client_x509_cert_url
-            private_key
-            private_key_id
-            project_id
-            token_uri
-            type
-            universe_domain
-            spreadsheet_id
-            sheet_name
-            start_cell
-            end_cell
+            AUTH_PROVIDER_X509_CERT_URL
+            AUTH_URI
+            CLIENT_EMAIL
+            CLIENT_ID
+            CLIENT_X509_CERT_URL
+            PRIVATE_KEY
+            PRIVATE_KEY_ID
+            PROJECT_ID
+            TOKEN_URI
+            TYPE
+            UNIVERSE_DOMAIN
+            SPREADSHEET_ID
+            SHEET_NAME
+            START_CELL
+            END_CELL
