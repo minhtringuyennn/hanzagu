@@ -3,6 +3,8 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
+		"clean": "rm -rf node_modules dist",
+		"ci": "yarn clean && yarn --frozen-lockfile",
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
