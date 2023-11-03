@@ -13,41 +13,13 @@ interface ImageData {
 }
 
 export const load = (async () => {
-	const AUTH_PROVIDER_X509_CERT_URL = env.AUTH_PROVIDER_X509_CERT_URL;
-	const AUTH_URI = env.AUTH_URI;
-	const CLIENT_EMAIL = env.CLIENT_EMAIL;
-	const CLIENT_ID = env.CLIENT_ID;
-	const CLIENT_X509_CERT_URL = env.CLIENT_X509_CERT_URL;
-	const raw_private_key = JSON.parse(env.PRIVATE_KEY);
-	const { PRIVATE_KEY } = raw_private_key;
-	const PRIVATE_KEY_ID = env.PRIVATE_KEY_ID;
-	const PROJECT_ID = env.PROJECT_ID;
-	const TOKEN_URI = env.TOKEN_URI;
-	const TYPE = env.TYPE;
-	const UNIVERSE_DOMAIN = env.UNIVERSE_DOMAIN;
-
 	const SPREADSHEET_ID = env.SPREADSHEET_ID;
-
 	const SHEET_NAME = env.SHEET_NAME;
 	const START_CELL = env.START_CELL;
 	const END_CELL = env.END_CELL;
 
-	const credentials = {
-		auth_provider_x509_cert_url: AUTH_PROVIDER_X509_CERT_URL,
-		auth_uri: AUTH_URI,
-		client_email: CLIENT_EMAIL,
-		client_id: CLIENT_ID,
-		client_x509_cert_url: CLIENT_X509_CERT_URL,
-		private_key: PRIVATE_KEY,
-		private_key_id: PRIVATE_KEY_ID,
-		project_id: PROJECT_ID,
-		token_uri: TOKEN_URI,
-		type: TYPE,
-		universe_domain: UNIVERSE_DOMAIN
-	};
-
 	const auth = new google.auth.GoogleAuth({
-		credentials,
+		keyFile: 'credentials.json',
 		scopes: 'https://www.googleapis.com/auth/spreadsheets.readonly'
 	});
 
